@@ -1,0 +1,65 @@
+<div class="article">
+    <div class="articleLeftBar">
+        <img src="../images/user2.jpg" class="userPortrait">
+        <button class="agree"><span class="glyphicon glyphicon-thumbs-up"></span><span class="agreeNumber">12</span></button>
+    </div>
+    <div class="articleCtn">
+        <div class="userInfo"><span class="userName">膜蛤膜得</span>,<span class="userIntro">蛤里发,伊斯兰之剑，阿萨辛的守墓人</span></div>
+        <div class="articleTitle">Linux Hadoop2.7.3 安装(单机模式) </div>
+        <div class="articleContent">
+
+            export JAVA_HOME=/usr/jdk/jdk1.8.0_112
+            export JRE_HOME=/usr/jdk/jdk1.8.0_112/jre
+            export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH
+            export PATH=$JAVA_HOME/bin:$PATH
+            SSH安装 http://www.linuxidc.com/Linux/2014-01/94793.htm
+
+            yum install openssh-server
+            创建ssh文件夹，在ssh文件夹下创建两个文件id_dsa及id_dsa.pub,这是一对私钥和公钥，然后把id_dsa.pub(公钥)追加到授权的key里面去。
+
+            ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+            cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+        </div>
+
+    </div>
+    <div class="posted">发布时间: 1453-7-29 阅读：14 回复：2</div>
+</div>
+<div class="article">
+    <div class="articleLeftBar">
+        <img src="../images/icc.jpg" class="userPortrait">
+        <button class="agree"><span class="glyphicon glyphicon-thumbs-up"></span><span class="agreeNumber">12</span></button>
+    </div>
+    <div class="articleCtn">
+        <div class="userInfo"><span class="userName">膜王</span>,<span class="userIntro">不死</span></div>
+        <div class="articleTitle">CSS强制性换行 </div>
+        <div class="articleContent">
+            一般情况下，元素拥有默认的white-space:normal（自动换行，PS：不换行是white-space:nowrap）,当录入的文字超过定义的宽度后会自动换行，但当录入的数据是一堆没有空格的字符或字母或数字（常规数据应该不会有吧，但有些测试人员是会这样子做的），超过容器宽度时就会把容器撑大，不换行。
+
+            解决方法（以IE，chrome,FF为测试浏览器）：
+
+            {
+
+            　　word-break:break-all; /*支持IE，chrome，FF不支持*/
+
+            　　word-wrap:break-word;/*支持IE，chrome，FF*/
+
+            }
+
+            以下是对这两种方法的区别说明：
+
+            1，word-break:break-all 例如div宽200px，它的内容就会到200px自动换行，如果该行末端有个英文单词很长（congratulation等），它会把单词截断，变成该行末端为conra(congratulation的前端部分)，下一行为tulation（conguatulation）的后端部分了。
+
+            2，word-wrap:break-word 例子与上面一样，但区别就是它会把congratulation整个单词看成一个整体，如果该行末端宽度不够显示整个单词，它会自动把整个单词放到下一行，而不会把单词截断掉的。
+
+            3，word-break:break-all 支持版本：IE5以上 该行为与亚洲语言的 normal 相同。也允许非亚洲语言文本行的任意字内断开。该值适合包含一些非亚洲文本的亚洲文本。
+
+            　  word-wrap:break-word 支持版本：IE5.5以上 内容将在边界内换行。如果需要，词内换行( word-break )也将发生。表格自动换行，避免撑开。
+
+            语法：word-break : normal | break-all | keep-all
+
+            参数： normal : 依照亚洲语言和非亚洲语言的文本规则，允许在字内换行
+        </div>
+
+    </div>
+    <div class="posted">发布时间: 1453-7-29 阅读：14 回复：2</div>
+</div>
