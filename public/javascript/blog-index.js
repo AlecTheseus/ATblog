@@ -1,30 +1,36 @@
-/**
- * Created by ThinkPad User on 2017/1/5.
- */
-
+jQuery.fx.interval=2;
 $(function () {
-    $(".pox").hover(function () {
-        $(this).addClass("em")
-    },function () {
-        $(this).removeClass("em")
+    var love=0;
+    $(".detaile>span").click(function () {
+        love++;
+        $(this).children("strong").html(love+" "+"Likes"+"&nbsp;");
     });
-    $(".box").hover(function () {
-        jQuery.fx.interval=16;
+    $(".pox").mouseleave(function () {
+        $(this).children(".box").animate({width:"20%"},500);
+    });
+    $(".box").mouseenter(function () {
         var thisbox=$(this);
-        thisbox.removeClass("actives");
-        thisbox.delay(200).addClass("activel");
-        thisbox.children(".detaile").delay(600).animate({bottom:"30"},400).css("opacity","0.6");
-        thisbox.siblings("div").addClass("actives");
-        thisbox.children(".box-tip").animate({opacity:"0"},300)
-    },function () {
-        jQuery.fx.interval=16;
-        // if($(".pox").hasClass("em")){
-        //     $(this).addClass("actives");
-        //     $(this).children(".detaile").animate({opacity:"0"},400).addClass("bbb");
-        // }else {
-        $(this).children(".box-tip").animate({opacity:"0.9"},300);
-        $(".box").removeClass("actives").removeClass("activel");
-        $(this).children(".detaile").animate({opacity:"0"},100).animate({bottom:"-300"},400);
-        // }
-    });
-});
+        var tw=thisbox.css('width');
+        t=setTimeout(function () {
+            thisbox.animate({width:"70%"},600);
+            thisbox.siblings(".box").animate({width:"7.5%"},600);
+            k=setTimeout(function () {
+                var detaile=thisbox.children(".detaile");
+                thisbox.children(".box-tip").animate({opacity:"0"},300);
+                thisbox.children(".detaile").delay(600).animate({bottom:"30"},500).css("opacity","0.8");
+                detaile.children("h1,p,span").delay(900).animate({opacity:"1"},300);
+                detaile.children("span").animate({right:"30px"},200);
+                detaile.children("h1,p").animate({left:"50px"},200)
+            },400)
+        },300);
+    }).mouseleave(function () {
+        clearTimeout(t);
+        clearTimeout(k);
+        var thisbox=$(this);
+        var detaile=thisbox.children(".detaile");
+        detaile.children("span").animate({right:"10px"},300);
+        detaile.children("h1,p").animate({left:"30px"},300);
+        $(this).children(".box-tip").delay(700).animate({opacity:"0.9"},300);
+        detaile.animate({opacity:"0"},100).css("bottom","-300px");
+    })
+})
