@@ -1,14 +1,14 @@
 {
-  "name": "jiaiapp",
+  "name": "ATblog",
   "version": "1.0.1",
-  "description": "jiai mobile app",
+  "description": "ATblog app",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlecTheseus/jiaiAPP.git"
+    "url": "git+https://github.com/AlecTheseus/ATblog.git"
   },
   "keywords": [
     "node"
@@ -16,9 +16,9 @@
   "author": "qiai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlecTheseus/jiaiAPP/issues"
+    "url": "https://github.com/AlecTheseus/ATblog/issues"
   },
-  "homepage": "https://github.com/AlecTheseus/jiaiAPP#readme",
+  "homepage": "https://github.com/AlecTheseus/ATblog#readme",
   "dependencies": {
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
