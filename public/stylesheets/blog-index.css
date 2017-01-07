@@ -1,13 +1,12 @@
 .em{display: block}
 *{padding: 0;margin: 0}
-html,body{height: 100%}
 .pox{width: 100%;height: 100%;background-color: #00b3ee;position: relative;overflow: hidden}
 .box{width: 20%;height: 100%;float: left;position: relative;box-shadow: #414040 0 -5px 10px;cursor: pointer}
 .box img{width: 1280px;height:100%}
 .box-tip{transform: rotate(270deg);position: absolute;left: -40px;bottom: 80px;
     background-color: #000000;width: 180px;height: 55px;
     text-align: center;opacity: 0.9}
-.box-tip h1{font-size: 28px;font-weight: bolder;color: #ffffff;line-height: 55px}
+.box-tip h1{font-size: 28px;font-weight: bolder;color: #ffffff;line-height: 25px}
 .detaile{position: absolute;bottom: -300px;left: 20px;width: 93%;height: 180px;background-color: #07efd6;
     opacity: 0.6;padding-left: 40px;min-width: 500px;}
 .detaile h1{font-size: 42px;font-family: Arial;font-weight: 500;color: #ffffff;

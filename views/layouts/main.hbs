@@ -15,20 +15,51 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/index.css">
+    <link rel="stylesheet" href="../stylesheets/blog-index.css">
 </head>
 <body>
-<header >
-    <img src="../images/logo.jpg" class="logoIMG">
-    <div class="wrap">
-        <div class="menu">
-            <div class="menuBar"></div>
-            <div class="menuBar"></div>
-            <div class="menuBar"></div>
+
+<div class="leftBar1">
+    <div class="container1">
+        <div class="select">
+            <span class="glyphiconCtl glyphicon glyphicon-chevron-left"></span>
+            工作
+        </div>
+        <div class="select">
+            <span class="glyphiconCtl glyphicon glyphicon-chevron-left"></span>
+            博客
+        </div>
+        <div class="select">
+            <span class="glyphiconCtl glyphicon glyphicon-chevron-left"></span>
+            页面
+        </div>
+        <div class="select">
+            联系
+        </div>
+
+    </div>
+    <div class="leftBar1Bottom">
+        <div class="searchDiv">
+
+        </div>
+        <div class="info">
+                <strong>NGA博客组</strong><br>
+                007 street<br>
+                PresencePolymorph<br>@gmail.com<br>
+                <abbr title="Phone">P:</abbr> (123) 456-7890
         </div>
     </div>
+</div>
+<header >
+    <img src="../images/logo.jpg" class="logoIMG">
+        <div id="menu">
+            <div class="menuBar" id="menuBar1"></div>
+            <div class="menuBar" id="menuBar2"></div>
+            <div class="menuBar" id="menuBar3"></div>
+        </div>
 </header>
 <nav>
-   {{{body}}}
+{{{body}}}
 </nav>
 
 
@@ -43,7 +74,8 @@
 <script src="../vendor/angular/angular.min.js"></script>
 <script src="../vendor/angular-route/angular-route.js"></script>
 <script src="../vendor/ng-table/ng-table.min.js"></script>
-
+<script src="../javascript/index.js"></script>
+<script src="../javascript/blog-index.js"></script>
 
 
 {{{_sections.rs-js}}}

@@ -29,32 +29,36 @@ app.set('port',process.env.PORT||2001);
 var routes=require('./routes/routes.js');
 app.use('/',routes);
 /*
-app.get('/',function (req,res) {
-    console.log('user in');
-    res.type('text/html');
-    res.send('<span style="color:green">- Welcome -</span>');
-});
-*/
+ app.get('/',function (req,res) {
+ console.log('user in');
+ res.type('text/html');
+ res.send('<span style="color:green">- Welcome -</span>');
+ });
+ */
 
 app.post('/user_in',function (req,res) {
     if(req.body){
+        var count={};
+        count.name=req.body.name;
+        count.age=req.body.age;
         console.log(req.body.email);
-        console.log(req.body.password);
-        res.send('daibige成功了');
+        console.log(req.body.password);//这是将从页面获取的name与age再返回的方法，
+        // 在html里面angularsuccess里的response.name与response.age；就能获取了，超级简单；
+        res.send(count);
     }else{ console.log('Nothing Upon');
         res.send('daibige失败了');
     }
 });
 
 
-app.get('/test',function (req, res) {
-    res.render('test');
-});
+/*app.get('/test',function (req, res) {
+ res.render('test');
+ });*/
 
 
 //404
 app.use(function (req,res) {
-    res.type("text/html");
+    res.type('text/html');
     res.status(404);
     // res.send('<span style="color:green">- 404 -</span>')
     res.render('errors/404',{layout:'error'});
@@ -65,12 +69,13 @@ app.use(function (req,res,err,next) {
     console.log(err.stack);
     res.type("text/plain");
     res.status(500);
-   // res.send('<span style="color:green"> 500 - Server Error </span>')
+    // res.send('<span style="color:green"> 500 - Server Error </span>')
     res.render('errors/500',{layout:'error'});
 });
 
 app.listen(app.get('port'),function () {
     console.log('Express Started on http://localhost:'+app.get('port')+'; press Ctrl + C to terminate');
 });
+
 
 
