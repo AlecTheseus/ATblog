@@ -1,0 +1,29 @@
+{
+  "name": "tuluping",
+  "description": "node_test",
+  "main": "index.js",
+  "authors": [
+    "tuluping"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

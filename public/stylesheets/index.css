@@ -14,7 +14,9 @@ a:hover
     max-width: 1360px;
     margin: 0 auto;
 }
-body{
+html,body{
+    height: 100%;
+    width: 100%;
 }
 .noPadding{
     padding: 0;
@@ -22,10 +24,12 @@ body{
 
 header{
     position: fixed;
-    width: 105px;
+    width: 7%;
     top:0;
     bottom: 0;
+    left:0;
     background-color: black;
+    z-index: 10;
 }
 .logoIMG{
     display: block;
@@ -41,28 +45,112 @@ header{
     margin-left: 15px;
 }
 
-header .menu{
-    vertical-align:middle;
+header #menu{
     width: 75px;
-    height: 75px;
-    position:relative;
-    top:-50%;
+    height: 60px;
+    position:absolute;
+    top:50%;
     padding: 10px;
     cursor: pointer;
+    margin: -50% 15px 0 15px;
 }
-.menu .menuBar{
+#menu .menuBar{
     height: 5px;
     background-color: white;
-    margin-bottom: 12px;
+    position: absolute;
+    width: 55px;
+}
+#menuBar1{
+
+}
+#menuBar2{
+    top:30px;
+}
+#menuBar3{
+    top:50px;
+}
+.menuCross{
+
+}
+.menuCross #menuBar1{
+    top:30px;
+    transform: rotate(45deg);
+    -ms-transform:rotate(45deg); 	/* IE 9 */
+    -moz-transform:rotate(45deg); 	/* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg); 	/* Opera */
+}
+.menuCross #menuBar2{
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); 	/* IE 9 */
+    -moz-transform:rotate(-45deg); 	/* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg); 	/* Opera */
+}
+.menuCross #menuBar3 {
+    visibility: hidden;
 }
 
 nav{
-    margin-left: 105px;
-    overflow: hidden;
+  width: 93%;
+    height: 100%;
     background-color: #00b3ee;
+    left: 7%;;position: absolute;
+}
+
+.leftBar1{
+    width:0;
+    background-color: white;
+    position: fixed;
     top:0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    overflow: hidden;
+    z-index: 10;
+}
+.leftBar1 .container1{
     position: absolute;
+    top:40%;
+}
+.leftBar1 .select{
+    height: 40px;
+    line-height: 40px;
+    width: 220px;
+    border-top: 1px solid #F0F0F0;
+    text-align: right;
+    padding-right: 20px;
+    cursor: pointer;
+    transition: all 0.7s;
+    position: relative;
+    font-weight: bold;
+}
+.leftBar1 .select:last-child{
+    border-bottom: 1px solid #F0F0F0;
+}
+.leftBar1 .select:hover{
+    background-color: #EFEFEF;
+}
+.glyphiconCtl{
+    position: absolute;
+    line-height: 40px;
+    left: 20px;
+}
+.leftBar1Bottom{
+    height: 260px;
+    bottom: 0;
+    position: absolute;
+    width: 220px;
+}
+.searchDiv{
+    height: 60px;
+}
+.info{
+    height: 200px;
+    padding: 20px;
+    text-align: right;
+    line-height: 20px;
+    color: gray;
+}
+.info strong{
+    color:black;
+    line-height: 30px;
 }

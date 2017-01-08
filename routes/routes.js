@@ -14,6 +14,9 @@ router.get('/',function (req,res) {
 router.get('/test',function (req,res) {
     res.render('test',{layout:'error'});
 });
+router.get('/blog',function (req,res) {
+    res.render('blog',{layout:'main'});
+});
 router.get('/index',function (req,res) {
     res.render('index',{layout:'error'});
 });
