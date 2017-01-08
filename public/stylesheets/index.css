@@ -59,6 +59,10 @@ header #menu{
     background-color: white;
     position: absolute;
     width: 55px;
+    transition:background-color 0.6s;
+    -moz-transition:background-color 0.6s; /* Firefox 4 */
+    -webkit-transition:background-color 0.6s; /* Safari and Chrome */
+    -o-transition:background-color 0.6s; /* Opera */
 }
 #menuBar1{
 
@@ -77,19 +81,41 @@ header #menu{
     transform: rotate(45deg);
     -ms-transform:rotate(45deg); 	/* IE 9 */
     -moz-transform:rotate(45deg); 	/* Firefox */
-    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -webkit-transform:rotate(45deg); /* Safari  Chrome */
     -o-transform:rotate(45deg); 	/* Opera */
 }
 .menuCross #menuBar2{
     transform:rotate(-45deg);
     -ms-transform:rotate(-45deg); 	/* IE 9 */
     -moz-transform:rotate(-45deg); 	/* Firefox */
-    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -webkit-transform:rotate(-45deg); /* Safari  Chrome */
     -o-transform:rotate(-45deg); 	/* Opera */
 }
 .menuCross #menuBar3 {
     visibility: hidden;
 }
+#menu:hover .menuBar{
+    background-color: #E74C3C;
+}
+.leftBarFilter{
+    height: 100%;
+    position: absolute;
+    left:105px;
+    width: 0px;
+    opacity: 0;
+
+    background-color: gray;
+}
+.leftBarFilterActive{
+    transition:background-color 0.5s;
+    -moz-transition:background-color 0.5s; /* Firefox 4 */
+    -webkit-transition:background-color 0.5s; /* Safari and Chrome */
+    -o-transition:background-color 0.5s; /* Opera */
+    opacity: 0.5;
+    width: 1920px;
+}
+
+
 
 nav{
     padding-left: 105px;
