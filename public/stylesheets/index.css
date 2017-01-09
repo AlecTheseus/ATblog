@@ -47,15 +47,16 @@ header{
 
 header #menu{
     width: 75px;
-    height: 60px;
+    height: 75px;
     position:absolute;
     top:50%;
     padding: 10px;
     cursor: pointer;
     margin: -50% 15px 0 15px;
+    overflow: hidden;
 }
 #menu .menuBar{
-    height: 5px;
+    height: 7px;
     background-color: white;
     position: absolute;
     width: 55px;
@@ -63,21 +64,25 @@ header #menu{
     -moz-transition:background-color 0.6s; /* Firefox 4 */
     -webkit-transition:background-color 0.6s; /* Safari and Chrome */
     -o-transition:background-color 0.6s; /* Opera */
+
 }
 #menuBar1{
-
+    top:10px;
 }
 #menuBar2{
-    top:30px;
+    top:34px;
 }
 #menuBar3{
-    top:50px;
+    top:58px;
+}
+#menuBar4{
+    top:82px;
+    opacity: 0;
 }
 .menuCross{
-
 }
 .menuCross #menuBar1{
-    top:30px;
+    top:34px;
     transform: rotate(45deg);
     -ms-transform:rotate(45deg); 	/* IE 9 */
     -moz-transform:rotate(45deg); 	/* Firefox */
@@ -97,6 +102,35 @@ header #menu{
 #menu:hover .menuBar{
     background-color: #E74C3C;
 }
+.menuRotate{
+    transition:transform 0.2s;
+    -moz-transition:transform 0.2s; /* Firefox 4 */
+    -webkit-transition:transform 0.2s; /* Safari and Chrome */
+    -o-transition:transform 0.2s; /* Opera */
+}
+.menuRotate:hover{
+    transform: rotate(90deg);
+}
+.menuUp{
+}
+.menuUp #menuBar1,.menuUp #menuBar2,.menuUp #menuBar3,.menuUp #menuBar4{
+    transition: all 0.2s;
+}
+.menuUp:hover #menuBar1{
+    top:-24px;
+    opacity: 0;
+}
+.menuUp:hover #menuBar2{
+    top:10px;
+}
+.menuUp:hover #menuBar3{
+    top:34px;
+}
+.menuUp:hover #menuBar4{
+    top:58px;
+    opacity: 1;
+}
+
 .leftBarFilter{
     height: 100%;
     position: absolute;
@@ -104,7 +138,7 @@ header #menu{
     width: 0px;
     opacity: 0;
 
-    background-color: gray;
+    background-color: #333;
 }
 .leftBarFilterActive{
     transition:background-color 0.5s;
@@ -149,6 +183,7 @@ nav{
     transition: all 0.7s;
     position: relative;
     font-weight: bold;
+    background-color: white;
 }
 .leftBar1 .select:last-child{
     border-bottom: 1px solid #F0F0F0;
@@ -180,4 +215,18 @@ nav{
 .info strong{
     color:black;
     line-height: 30px;
+}
+
+.leftBar2Ctn{
+    width:100%;
+    height: 400px;
+    background-color: #1b6d85;
+    z-index: 20;
+    position: absolute;
+}
+.leftBar2CtnUpper{
+    position: absolute;
+    top:-300px;
+    width: 220px;
+    background-color: #1b6d85;
 }
