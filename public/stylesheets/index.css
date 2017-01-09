@@ -218,15 +218,46 @@ nav{
 }
 
 .leftBar2Ctn{
-    width:100%;
+    width:0;
     height: 400px;
-    background-color: #1b6d85;
     z-index: 20;
     position: absolute;
+    left: -220px;
 }
 .leftBar2CtnUpper{
     position: absolute;
-    top:-300px;
+    top:-80px;
     width: 220px;
-    background-color: #1b6d85;
+}
+.selectedTitle{
+    height: 40px;
+    border-top: 1px solid #F0F0F0;
+    text-align: left;
+    padding-left: 20px;
+    cursor: auto;
+    transition: all 0.7s;
+    position: relative;
+    font-weight: bold;
+    background-color: white;
+}
+.selectBack{
+    background-color: #E74C3C;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    position: relative;
+}
+.glyphiconCt2{
+    text-align: right;
+    position: absolute;
+    line-height: 40px;
+    right: 20px;
+}
+.leftBar2BG{
+    position: fixed;
+    top:-50%;
+    width: 220px;
+    height: 200%;
+    background-color: white;
+    left: -220px;
 }

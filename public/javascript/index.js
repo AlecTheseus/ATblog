@@ -1,12 +1,19 @@
 $(function () {
+    /*LeftBar start*/
+    /*remove*/
+    function removeLeftBar() {
+        $('#menu').removeClass('menuCross menuRotate');
+        $('header').animate({left: '0'});
+        $('.leftBar1').animate({width: '0'});
+        $('.leftBarFilter').animate({opacity:'0'},500).queue(function () {
+            $(this).css({'width':"0"}).dequeue();
+        });
+        $('.leftBar2Ctn').animate({left: '-220px'},400);
+        $('.leftBar2BG').animate({left: '-220px'},400);
+    }
     $('#menu').click(function () {
         if($('#menu').hasClass('menuCross')){
-            $('#menu').removeClass('menuCross menuRotate');
-            $('header').animate({left: '0'});
-            $('.leftBar1').animate({width: '0'});
-            $('.leftBarFilter').animate({opacity:'0'},500).queue(function () {
-                $(this).css({'width':"0"}).dequeue();
-            });
+            removeLeftBar();
         }
         else{
             $('#menu').removeClass('menuUp');
@@ -17,12 +24,7 @@ $(function () {
         }
     });
     $('.leftBarFilter').click(function () {
-        $('#menu').removeClass('menuCross');
-        $('header').animate({left: '0'});
-        $('.leftBar1').animate({width: '0'});
-        $('.leftBarFilter').animate({opacity:'0'},500).queue(function () {
-            $(this).css({'width':"0"}).dequeue();
-        });
+        removeLeftBar();
     });
     $('#menu').hover(function () {
         if($('#menu').hasClass('menuCross')){
@@ -34,5 +36,17 @@ $(function () {
 
     },function () {
         $('#menu').removeClass('menuRotate menuUp');
+    });
+    /*LeftBar Secondary*/
+    $('#selectWork').click(function () {
+        $('.leftBar2Ctn').animate({left: '0'},400);
+        $('.leftBar2BG').animate({left: '0'},400);
+        $('.leftBar1').css({'background-color': '#F9F9F9'});
+    });
+    $('.selectBack').click(function () {
+        event.stopPropagation();
+        $('.leftBar2Ctn').animate({left: '-220px'},400);
+        $('.leftBar2BG').animate({left: '-220px'},400);
+        $('.leftBar1').css({'background-color': 'white'});
     });
 });
