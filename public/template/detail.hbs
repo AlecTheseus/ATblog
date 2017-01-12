@@ -1,0 +1,63 @@
+
+
+<div ng-controller="DetailController as Ctrl">
+
+    <h1>User Detail Page</h1>
+
+    <p>{{Ctrl.message}}</p>
+
+
+
+    <button class="btn btn-primary" ng-click="Ctrl.currenTab='default'">头像</button>
+    <button class="btn btn-primary" ng-click="Ctrl.currenTab='tab2'">简历</button>
+    <button class="btn btn-primary" ng-click="Ctrl.currenTab='tab3'">经历</button>
+    <button class="btn btn-primary" ng-click="Ctrl.currenTab='tab4'">个人主页</button>
+
+
+    <div ng-switch="Ctrl.currenTab">
+        <div ng-switch-default>
+            <p class="h4">My Tab1 is Selected</p>
+            <div ng-init="myVar='images/slide1.jpg'"></div>
+            <img ng-src="{{myVar}}" alt="">
+        </div>
+
+        <div ng-switch-when="tab2">
+            简历 Tab2 is Selected
+            <p ng-pluralize
+               count="Ctrl.personCount"
+               when="{'0':'Nobody is viewing.',
+                      '1':'1 person is viewing.',
+                      'other':'{} people are viewing.'}"></p>
+        </div>
+
+        <div ng-switch-when="tab3">
+            <h4>经历 Tab3 is Selected</h4>
+            <h2>Event Directives</h2>
+
+            <input type="text"
+                   ng-blur="Ctrl.focusState='Blurred'"
+                   ng-focus="Ctrl.focusState='Focused'"
+                   ng-mouseenter="Ctrl.mouseState='Entered'"
+                   ng-mouseleave="Ctrl.mouseState='Left'"
+                   ng-mousedown="Ctrl.mouseState='Down'"
+                   ng-mouseup="Ctrl.mouseState='Up'"
+                   ng-keyup="Ctrl.keyStroke($event)"
+                   ng-click="Ctrl.mouseClick($event)">
+            <hr>
+
+            Focus State:{{Ctrl.focusState}} <br>
+            Mouse State:{{Ctrl.mouseState}} <br>
+               Key Info:{{Ctrl.keyInfo | json}} <br>
+               Key Info:{{Ctrl.mouseInfo | json}} <br>
+            Mouse State:{{Ctrl.focusState | json}} <br>
+
+        </div>
+        <div ng-switch-when="tab4">个人主页</div>
+    </div>
+</div>
+
+
+
+
+
+

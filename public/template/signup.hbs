@@ -1,0 +1,66 @@
+
+
+<div ng-controller="SignupController as Ctrl">
+    <h1>User Signup Page</h1>
+
+    <p>{{Ctrl.message}}</p>
+
+    <form name="signupform"
+          ng-submit="Ctrl.signupFormSub()"
+          class="form">
+        <div class="form-group">
+            <label>UserName</label>
+            <input type="text"
+                   name="username"
+                   ng-change="Ctrl.changeEvent()"
+                   ng-model="Ctrl.signInfos.username"
+                   required
+                   class="form-control">
+            <p>{{Ctrl.userback}}</p>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   ng-model="Ctrl.signInfos.password"
+                   required
+                   class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password"
+                   name="password2"
+                   ng-model="password2"
+                   ng-class="{'input-error':Ctrl.signInfos.password!=password2 && signupform.password2.$touched}"
+                   required
+                   class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit"
+                    class="btn btn-primary"
+                    ng-disabled="signupform.$invalid || Ctrl.signInfos.password!=password2 || Ctrl.lock">Submit</button>
+        </div>
+
+    </form>
+    <p class="h4">{{Ctrl.signupResult}}</p>
+
+    <form class="form">
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="Ctrl.listUsers()">List Users</button>
+        </div>
+    </form>
+    <button class="btn btn-primary" ng-click="Ctrl.listReverse()">List Reverse</button>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="users in Ctrl.getdata | orderBy:Ctrl.getdata.username:Ctrl.reverse">
+            <td ng-bind="$index+1"></td>
+            <td>{{users.id}}</td>
+            <td>{{users.username}}</td>
+            <td>{{users.password}}</td>
+        </tr>
+    </table>
+</div>
+

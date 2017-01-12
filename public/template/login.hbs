@@ -1,0 +1,31 @@
+
+<div ng-controller="LoginController as Ctrl">
+    <h1>User Login Page</h1>
+
+    <p class="h4">{{Ctrl.message}}</p>
+
+    <p>{{Ctrl.messageFull}}</p>
+
+    <form name="signupform"
+          ng-submit="Ctrl.login()"
+          class="form-horizontal">
+        <div class="form-group">
+            <label>UserName</label>
+            <input type="text"
+                   name="username"
+                   ng-model="Ctrl.user.username"
+                   required
+                   class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password"
+                   ng-model="Ctrl.user.password"
+                   required
+                   class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" ng-disabled="signupform.$invalid">Login</button>
+        </div>
+    </form>
+</div>

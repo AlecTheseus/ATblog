@@ -38,11 +38,17 @@ $(function () {
         $('#menu').removeClass('menuRotate menuUp');
     });
     /*LeftBar Secondary*/
-    $('#selectWork').click(function () {
-        $('.leftBar2Ctn').animate({left: '0'},400);
-        $('.leftBar2BG').animate({left: '0'},400);
-        $('.leftBar1').css({'background-color': '#F9F9F9'});
+    $('#selectWork,#selectBlog').click(function () {
+        $(this).children('.leftBar2Ctn').animate({left: '0'},400);
+        $(this).children('.leftBar2BG').animate({left: '0'},400);
+        $(this).children('.leftBar1').css({'background-color': '#F9F9F9'});
     });
+    /*$('#selectBlog').click(function () {
+        $('#selectBlog .leftBar2Ctn').animate({left: '0'},400);
+        $('#selectBlog .leftBar2BG').animate({left: '0'},400);
+        $('#selectBlog .leftBar1').css({'background-color': '#F9F9F9'});
+    });*/
+
     $('.selectBack').click(function () {
         event.stopPropagation();
         $('.leftBar2Ctn').animate({left: '-220px'},400);

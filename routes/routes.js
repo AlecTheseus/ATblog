@@ -12,7 +12,7 @@ router.get('/',function (req,res) {
 });
 
 router.get('/test',function (req,res) {
-    res.render('test',{layout:'error'});
+    res.render('main',{layout:'main'});
 });
 router.get('/blog',function (req,res) {
     res.render('blog',{layout:'main'});

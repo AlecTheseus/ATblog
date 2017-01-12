@@ -1,0 +1,37 @@
+
+
+
+<div ng-controller="ListController as Ctrl">
+
+    <h1>User List Page</h1>
+
+    <p>{{Ctrl.message}}</p>
+
+    <table ng-table="Ctrl.tableParams"
+           class="table table-condensed table-bordered"
+           show-filter = "true">
+        <tr ng-repeat="Msg in $data">
+            <td><input type="checkbox" class="ckbox"></td>
+            <td data-title="'name'"
+                sortable="'name'" filter ="{'name':'text'}">
+                {{Msg.name}}
+            </td>
+            <td data-title="'Prestige'"
+                sortable="'Prestige'" filter ="{'Prestige':'text'}">
+                {{Msg.Prestige}}
+            </td>
+            <td data-title="'Piety'"
+                sortable="'Piety'" filter ="{'Piety':'text'}">
+                {{Msg.Piety}}
+            </td>
+            <td data-title="'Bannermen'"
+                sortable="'Bannermen'" filter ="{'Bannermen':'text'}">
+                {{Msg.Bannermen}}
+            </td>
+
+
+        </tr>
+
+    </table>
+
+</div>

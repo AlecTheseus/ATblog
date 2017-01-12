@@ -1,81 +1,88 @@
-var express = require('express');
-var app = express();
-//解析表单数据
+
+var express=require('express'),
+    fs = require('fs'),
+    url = require('url'),
+    INDEX_HTML = fs.readFileSync(__dirname +'/public/index.html','utf-8'),
+    ACCEPTABLE_URLS=['/signup','/login','/edit','/list','/forget','/detail'];
+
+var app=express();
+
+
+// 为了SEO优化用的，用来处理#!...显示时就没有#!
+app.use(function (req,res,next){
+    var parts = url.parse(req.url);
+    var urlCounter = ACCEPTABLE_URLS.length;
+    for(var i = 0;i<urlCounter;i++){
+        //当我们找到了一条匹配客户端页面路由的配置时
+        if (parts.pathname.indexOf(ACCEPTABLE_URLS[i])===0){
+            return res.send(200,INDEX_HTML);}
+    }
+    return next();
+});
+
+
 app.use(require('body-parser')());
-//设置handlebars视图引擎及视图目录及视图文件扩展名
-var handlebars=require('express-handlebars')
+
+
+
+//设置handlebars 视图引擎及视图目录和视图文件扩展名
+var handlebars = require('express-handlebars')
     .create({
-        defaultlayout:'main',//设置默认布局为main
-        extname:'.hbs',//设置魔板引擎文件后缀为.hbs
-        //创建一个handlebars辅助函数，让他给出一个到静态资源的链接
-        helpers:{
-            static:function (name) {
+        defaultLayout: 'main', // 设置默认布局为main
+        extname: '.hbs', // 设置模板引擎文件后缀为.hbs
+        //创建一个Handlebars 辅助函数，让它给出一个到静态资源的链接：
+        helpers: {
+            static: function(name) {
                 return require('./lib/static.js').map(name);
             },
-            section:function (name, options) {
-                if(!this._section)this._section={};
-                this._section[name]=options.fn(this);
+            section : function(name, options) {
+                if(!this._sections) this._sections = {};
+                this._sections[name] = options.fn(this);
                 return null;
             }
         }
     });
-app.engine('hbs',handlebars.engine);
-app.set('view engine','hbs');
-//static resources
+app.engine('hbs', handlebars.engine);
+app.set('view engine', 'hbs');
+
+
+//静态资源
 app.use(express.static(__dirname + '/public'));
-app.set('port',process.env.PORT||2001);
+app.set('port',process.env.PORT || 2001);
+
+
 
 //配置默认进入页面
 var routes=require('./routes/routes.js');
 app.use('/',routes);
-/*
- app.get('/',function (req,res) {
- console.log('user in');
- res.type('text/html');
- res.send('<span style="color:green">- Welcome -</span>');
- });
- */
 
-app.post('/user_in',function (req,res) {
-    if(req.body){
-        var count={};
-        count.name=req.body.name;
-        count.age=req.body.age;
-        console.log(req.body.email);
-        console.log(req.body.password);//这是将从页面获取的name与age再返回的方法，
-        // 在html里面angularsuccess里的response.name与response.age；就能获取了，超级简单；
-        res.send(count);
-    }else{ console.log('Nothing Upon');
-        res.send('daibige失败了');
-    }
+
+app.get('/test',function (req,res){
+    console.log('user in');
+    res.type('text/html');
+    res.send('<span style="color: green">- Welcome -</span>');
 });
-
-
-/*app.get('/test',function (req, res) {
- res.render('test');
- });*/
-
 
 //404
 app.use(function (req,res) {
     res.type('text/html');
     res.status(404);
-    // res.send('<span style="color:green">- 404 -</span>')
-    res.render('errors/404',{layout:'error'});
+    res.send('<span style="color: red">404 - NOT Found</span>');
 });
 
-//500
+//500 服务器数据错误,内部逻辑错误
 app.use(function (req,res,err,next) {
-    console.log(err.stack);
-    res.type("text/plain");
+    console.error(err.stack);
+    res.type('text/plain');
     res.status(500);
-    // res.send('<span style="color:green"> 500 - Server Error </span>')
-    res.render('errors/500',{layout:'error'});
+    res.send('<span style="color: red">500 - Server Error</span>');
 });
 
 app.listen(app.get('port'),function () {
     console.log('Express Started on http://localhost:'+app.get('port')+'; press Ctrl + C to terminate');
 });
+
+
 
 
 
